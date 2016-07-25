@@ -6,13 +6,13 @@
 * has_many :comments
 =========================
 ## column/type
-* name
-* email
-* password
+* name/string
+* email/text
+* password/string
 * avatar
-* profile
-* position
-* occupation
+* profile/text
+* position/text
+* occupation/text
 
 ----------------------------------------------
 
@@ -25,10 +25,10 @@
 * belongs_to :user
 ========================
 ## column/type
-* title
-* catch_copy
-* concept
-* user_id
+* title/string
+* catch_copy/text
+* concept/text
+* user_id/integer
 
 ------------------------------------------------
 
@@ -38,8 +38,8 @@
 * belongs_to :proto
 =========================
 ## column/type
-* images
-* proto_id
+* images/text
+* proto_id/integer
 
 -------------------------------------------------
 
@@ -50,8 +50,8 @@
 * belongs_to :proto
 =========================
 ## column/type
-* user_id
-* proto_id
+* user_id/integer
+* proto_id/integer
 
 -------------------------------------------------
 
@@ -62,9 +62,9 @@
 * belongs_to :proto
 ==========================
 ## column/type
-* comments
-* user_id
-* proto_id
+* comments/text
+* user_id/integer
+* proto_id/integer
 
 
 
