@@ -28,7 +28,7 @@
 * title/string
 * catch_copy/text
 * concept/text
-* user_id/integer
+* user_id/references
 
 ------------------------------------------------
 
@@ -38,8 +38,8 @@
 * belongs_to :proto
 =========================
 ## column/type
-* images/text
-* proto_id/integer
+* image_url/text
+* proto_id/references
 
 -------------------------------------------------
 
@@ -50,8 +50,8 @@
 * belongs_to :proto
 =========================
 ## column/type
-* user_id/integer
-* proto_id/integer
+* user_id/references
+* proto_id/references
 
 -------------------------------------------------
 
@@ -62,37 +62,6 @@
 * belongs_to :proto
 ==========================
 ## column/type
-* comments/text
-* user_id/integer
-* proto_id/integer
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+* comment_text/text
+* user_id/references
+* proto_id/references
