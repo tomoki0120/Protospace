@@ -1,22 +1,22 @@
-# Users_table
+# users_table
 =========================
 ## association
-* has_many :prototypes
+* has_many :protos
 * has_many :likes
 * has_many :comments
 =========================
-## column/type
-* name/string
-* email/text
-* password/string
+## column
+* name
+* email
+* password
 * avatar
-* profile/text
-* position/text
-* occupation/text
+* profile
+* position
+* occupation
 
 ----------------------------------------------
 
-# Protos_table
+# protos_table
 ========================
 ## association
 * has_many :images
@@ -32,13 +32,14 @@
 
 ------------------------------------------------
 
-# images_table
+#images_table
 =========================
 ## asociation
 * belongs_to :proto
 =========================
 ## column/type
 * image_url/text
+* status/integer
 * proto_id/references
 
 -------------------------------------------------
