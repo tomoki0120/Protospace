@@ -1,32 +1,29 @@
 .container.user-new{action: ""}
-  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  =form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     .col-md-8.col-md-offset-2
-    %header.row.user-nav.row
-      .col-md-12
-        %h2 Register
-        .user-name_image.row
-          .user-name.col-md-10
-            = f.text_field :name ,placeholder: "Username",required: true
-          .user-image.col-md-2
-            %button.btn.btn-primary Add image
-            = f.file_field :avatar
-        .user-email
-          =f.text_field :email, placeholder: "E-Mail",required: true
-        .user-password
-        =f.text_field :password, placeholder: "Password", required: true
-      .col-md-12
-        %h4 Member of
-        .user-user-member.row
-          .user-name.col-md-12
-            =f.text_field :position, placeholder: "Member"
-        %h4 Profile
-        .user-user-profile.row
-          .user-name.col-md-12
-            = f.text_area :profile, cols: "30", rows: "4", placeholder: "Profile"
-        %h4 Works
-        .user-name_image.row
-          .user-name.col-md-12
-            =f.text_area :occupation, cols: "30", rows: "4", placeholder: "Works"
-    .row.text-center.user-btn
-      .btn.btn-lg.btn-primary.btn-block
-        =f.submit 'SAVE'
+      %header.row.user-nav.row
+        .col-md-12
+          %h2 Register
+          .user-name_image.row
+            .user-name.col-md-10
+              = f.text_field :name, placeholder: "Username"
+            .user-image.col-md-2
+              %button.btn.btn-primary Add image
+              %input{type: "file"}/
+          = f.email_field :email, placeholder: "E-Mail"
+          = f.password_field :password, autocomplete: "off", placeholder: 'Password'
+        .col-md-12
+          %h4 Member of
+          .user-user-member.row
+            .user-name.col-md-12
+              = f.text_field :position, placeholder: "Member"
+          %h4 Profile
+          .user-user-profile.row
+            .user-name.col-md-12
+              =f.text_area :profile, placeholder: "Profile"
+          %h4 Works
+          .user-name_image.row
+            .user-name.col-md-12
+              = f.text_area :occupation, placeholder: "Works"
+      .row.text-center.user-btn
+        %button.btn.btn-lg.btn-primary.btn-block{type: "submit"} Save}
