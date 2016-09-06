@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20160906075255) do
     t.text     "position",               limit: 65535
     t.text     "occupation",             limit: 65535
     t.text     "profile",                limit: 65535
+    t.string   "name",                   limit: 255
     t.string   "avatar_file_name",       limit: 255
     t.string   "avatar_content_type",    limit: 255
     t.integer  "avatar_file_size",       limit: 4
