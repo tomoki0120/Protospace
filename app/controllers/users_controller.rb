@@ -1,16 +1,18 @@
 class UsersController < ApplicationController
 
+  before_action :set_user, only: [:show, :edit, :update]
+  before_action :authenticate_user!, only: [:edit,:update]
 
   def show
-    each_user
+    set_user
   end
 
   def edit
-    each_user
+    set_user
   end
 
   def update
-    each_user
+    set_user
     @user.update(update_params)
     redirect_to :root
   end
@@ -21,7 +23,7 @@ class UsersController < ApplicationController
       :occupation)
   end
 
-  def each_user
+  def set_user
     @user = User.find(params[:id])
   end
 
