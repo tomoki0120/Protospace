@@ -13,8 +13,8 @@ class UsersController < ApplicationController
 
   def update
     set_user
-    @user.update(update_params)
-    redirect_to :root
+    if @user.update(update_params)
+        redirect_to :root, notice: 'プロフィールの編集ができました！'
   end
 
   private
