@@ -4,12 +4,12 @@ class PrototypesController < ApplicationController
   end
 
   def new
-    @prototypes = Prototype.new
+    @prototypes = Proto.new
     @prototypes.images.build
   end
 
   def create
-    @prototypes = Prototype.create(create_params)
+    @prototypes = Proto.create(create_params)
     redirect_to :root
   end
 
