@@ -1,12 +1,12 @@
 .container.proto-new{action: ""}
-  = form_for @prototypes do |f|
+  = form_for @prototypes,url: prototypes_path do |f|
     .col-md-8.col-md-offset-2
       %header.row.user-nav.row
         .col-md-12
-          = f.text_filed :title, class:".proto-new-title", placeholder: "Title"
+          = f.text_field :title, class:".proto-new-title", placeholder: "Title"
       .row
-        = f.fields_for :images do |image|
-          .col-md-12
+        .col-md-12
+          = f.fields_for :images do |image|
             .cover-image-upload
               = image.file_field :image_url
               = image.hidden_field :status, value: "main"
@@ -14,20 +14,22 @@
             %ul.proto-sub-list.list-group
               %li.list-group-item.col-md-4
                 .image-upload
-                  = image.file_field :image_url
-                  = image.hidden_field :status, value: "sub"
+                  = f.fields_for :images do |image|
+                    = image.file_field :image_url
+                    = image.hidden_field :status, value: "sub"
               %li.list-group-item.col-md-4
                 .image-upload
-                  = image.file_field :image_url
-                  = image.hidden_field :status, value: "sub"
+                  = f.fields_for :images do |image|
+                    = image.file_field :image_url
+                    = image.hidden_field :status, value: "sub"
               %li.list-group-item.col-md-4
                 .image-upload-plus
                   %span +
       .row.proto-description
         .col-md-12
-          =f.text_filed :catch_copy, placeholder: "Catch Copy"
+          =f.text_field :catch_copy, placeholder: "Catch Copy"
         .col-md-12
-          =f.text_area :concept, name: "", cols: "30", rows: "4", placeholder: "Concept"
+          =f.text_area :concept, cols: "30", rows: "4", placeholder: "Concept"
         .col-md-12
           %h4 Tag List
           .row
@@ -39,3 +41,4 @@
               %input{type: "text", placeholder: "Application"}/
       .row.text-center.proto-btn
         = f.submit "PUBLISH", id: "button", class: "btn btn-lg btn-primary btn-block"
+        = f.hidden_field :user_id, value: current_user.id
