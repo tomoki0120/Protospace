@@ -9,8 +9,12 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    @prototypes = Proto.create(proto_params)
-    redirect_to :root
+    @prototypes = Proto.new(proto_params)
+    if @prototypes.save
+      redirect_to :root,notice: 'upload complete'
+    else
+      redirect_to action: "new", alert: 'Not complete'
+    end
   end
 
   def show
@@ -20,4 +24,5 @@ class PrototypesController < ApplicationController
   def proto_params
     params.require(:proto).permit(:title, :catch_copy, :concept, :user_id, images_attributes: [:id, :image_url, :status])
   end
+
 end
