@@ -9,7 +9,7 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    @prototypes = Proto.create(create_params)
+    @prototypes = Proto.create(proto_params)
     redirect_to :root
   end
 
@@ -17,7 +17,7 @@ class PrototypesController < ApplicationController
   end
 
   private
-  def create_params
+  def proto_params
     params.require(:proto).permit(:title, :catch_copy, :concept, :user_id, images_attributes: [:id, :image_url, :status])
   end
 end
