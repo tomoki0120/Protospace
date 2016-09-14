@@ -4,4 +4,6 @@ class Image < ActiveRecord::Base
   belongs_to :proto
   
   enum status: %i(main sub)
+
+  validates :image_url, presence: true
 end
