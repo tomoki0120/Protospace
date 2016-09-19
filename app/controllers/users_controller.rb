@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def show
     set_user
+    @prototypes = @user.protos
   end
 
   def edit
