@@ -1,6 +1,7 @@
 class PrototypesController < ApplicationController
 
   def index
+    @prototypes = Proto.eager_load(:images,:user).page(params[:page]).per(10)
   end
 
   def new
@@ -18,11 +19,14 @@ class PrototypesController < ApplicationController
   end
 
   def show
+    @prototype = Proto.find(params[:id])
+    @sub_photo = @prototype.images_sub
+    @main_photo = @prototype.image_main_photo
   end
 
   private
   def proto_params
-    params.require(:proto).permit(:title, :catch_copy, :concept, :user_id, images_attributes: [:id, :image_url, :status])
+    params.require(:proto).permit(:title, :catch_copy, :concept, :user_id, images_attributes: [:id, :photo, :status])
   end
 
 end
