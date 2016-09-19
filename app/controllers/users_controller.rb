@@ -4,16 +4,13 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:edit,:update]
 
   def show
-    set_user
     @prototypes = @user.protos
   end
 
   def edit
-    set_user
   end
 
   def update
-    set_user
     @user.update(update_params)
     redirect_to :root, notice: 'You can edit your profile.'
   end
