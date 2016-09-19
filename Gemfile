@@ -45,6 +45,7 @@ group :development do
   gem 'spring'
 end
 
+gem 'pry-rails'
 gem 'haml-rails'
 gem 'erb2haml'
 gem 'bootstrap-sass'
