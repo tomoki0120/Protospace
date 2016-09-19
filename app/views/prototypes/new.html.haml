@@ -8,19 +8,19 @@
         .col-md-12
           = f.fields_for :images do |image|
             .cover-image-upload
-              = image.file_field :image_url
+              = image.file_field :photo
               = image.hidden_field :status, value: "main"
           .col-md-12
             %ul.proto-sub-list.list-group
               %li.list-group-item.col-md-4
                 .image-upload
                   = f.fields_for :images do |image|
-                    = image.file_field :image_url
+                    = image.file_field :photo
                     = image.hidden_field :status, value: "sub"
               %li.list-group-item.col-md-4
                 .image-upload
                   = f.fields_for :images do |image|
-                    = image.file_field :image_url
+                    = image.file_field :photo
                     = image.hidden_field :status, value: "sub"
               %li.list-group-item.col-md-4
                 .image-upload-plus
