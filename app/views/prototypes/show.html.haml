@@ -15,15 +15,15 @@
 
     .col-md-6.text-right
       %button.btn.btn-default
-        = image_tag(@prototype.image_main_photo)
+        = image_tag(@main_photo)
         Like
         %span.num 20
   .row
     .col-md-9
-      = image_tag(@prototype.image_main_photo, class: 'img-responsive')
+      = image_tag(@main_photo, class: 'img-responsive')
     .col-md-3
       %ul.proto-sub-list.list-group
-        - @prototype.images_sub.each do |image|
+        - @sub_photo.each do |image|
           %li.list-group-item
             = image_tag(image.photo, class: 'img-responsive')
   .row.proto-description

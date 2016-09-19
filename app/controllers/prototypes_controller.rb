@@ -20,6 +20,8 @@ class PrototypesController < ApplicationController
 
   def show
     @prototype = Proto.find(params[:id])
+    @sub_photo = @prototype.images_sub
+    @main_photo = @prototype.image_main_photo
   end
 
   private
