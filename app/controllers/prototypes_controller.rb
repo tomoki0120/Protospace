@@ -1,7 +1,7 @@
 class PrototypesController < ApplicationController
 
   def index
-    @prototypes = Proto.order("updated_at DESC").page(params[:page]).per(10)
+    @prototypes = Proto.eager_load(:images,:user).page(params[:page]).per(10)
   end
 
   def new
