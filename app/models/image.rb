@@ -6,4 +6,5 @@ class Image < ActiveRecord::Base
   enum status: %i(main sub)
 
   validates :photo, presence: true
+
 end
