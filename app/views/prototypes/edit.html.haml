@@ -7,19 +7,19 @@
       .row
         .col-md-12
           .cover-image-upload
-            = f.fields_for :images do |image|
+            = f.fields_for :images, @prototype.images.main do |image|
               = image.file_field :photo
               = image.hidden_field :status, value: "main"
           .col-md-12
             %ul.proto-sub-list.list-group
               %li.list-group-item.col-md-4
                 .image-upload
-                  = f.fields_for :images do |image|
+                  = f.fields_for :images, @prototype.images.sub.first do |image|
                     = image.file_field :photo
                     = image.hidden_field :status, value: "sub"
               %li.list-group-item.col-md-4
                 .image-upload
-                  = f.fields_for :images do |image|
+                  = f.fields_for :images, @prototype.images.sub.second do |image|
                     = image.file_field :photo
                     = image.hidden_field :status, value: "sub"
               %li.list-group-item.col-md-4
@@ -41,4 +41,3 @@
               %input{type: "text", placeholder: "Application"}/
       .row.text-center.proto-btn
         = f.submit "PUBLISH", id: "button", class: "btn btn-lg btn-primary btn-block"
-        = f.hidden_field :user_id, value: current_user.id
