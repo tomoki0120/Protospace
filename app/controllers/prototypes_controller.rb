@@ -29,12 +29,12 @@ class PrototypesController < ApplicationController
 
   def destroy
     @prototype.destroy
-    redirect_to :root, notice: 'You can destroy your prototype.'
+    redirect_to :root, notice: 'You could destroy your prototype.'
   end
 
   def update
     if @prototype.update(proto_params)
-      redirect_to action: show, notice: 'You can edit your prototype.'
+      redirect_to action: show, notice: 'You could edit your prototype.'
     else
       redirect_to action: edit , alert: 'You cannot edit your prototype.'
     end
@@ -42,7 +42,7 @@ class PrototypesController < ApplicationController
 
   private
   def proto_params
-    params.require(:proto).permit(:title, :catch_copy, :concept, :user_id, images_attributes: [:id, :photo, :status])
+    params.require(:proto).permit(:title, :catch_copy, :concept, images_attributes: [:id, :photo, :status]).merge(user_id: current_user.id)
   end
 
   def set_prototype
