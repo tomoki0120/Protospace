@@ -1,25 +1,25 @@
 .container.proto-new{action: ""}
-  = form_for @prototypes,url: prototypes_path do |f|
+  = form_for @prototype,url: prototype_path do |f|
     .col-md-8.col-md-offset-2
       %header.row.user-nav.row
         .col-md-12
           = f.text_field :title, class:".proto-new-title", placeholder: "Title"
       .row
         .col-md-12
-          = f.fields_for :images do |image|
-            .cover-image-upload
+          .cover-image-upload
+            = f.fields_for :images, @prototype.images.main do |image|
               = image.file_field :photo
               = image.hidden_field :status, value: "main"
           .col-md-12
             %ul.proto-sub-list.list-group
               %li.list-group-item.col-md-4
                 .image-upload
-                  = f.fields_for :images do |image|
+                  = f.fields_for :images, @prototype.images.sub.first do |image|
                     = image.file_field :photo
                     = image.hidden_field :status, value: "sub"
               %li.list-group-item.col-md-4
                 .image-upload
-                  = f.fields_for :images do |image|
+                  = f.fields_for :images, @prototype.images.sub.second do |image|
                     = image.file_field :photo
                     = image.hidden_field :status, value: "sub"
               %li.list-group-item.col-md-4

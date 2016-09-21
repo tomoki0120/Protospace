@@ -10,7 +10,7 @@
       -if user_signed_in?
         %ul.nav.navbar-nav.navbar-right
           %li.dropdown
-            %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", href: "#", role: "button"}
+            %a.dropdown-toggle{ aria: { expanded: true }, data: { toggle: :dropdown }, href: "#", role: "button"}
               #{current_user.name}
               %span.caret
             %ul.dropdown-menu{role: "menu"}
@@ -24,13 +24,6 @@
             .btn.btn-primary.navbar-btn
               %a{href: "/prototypes/new"}
                 New Proto
-
-          %li
-            =link_to 'Logout',destroy_user_session_path, method: :delete
-          %li
-            =link_to 'Edit',edit_user_path(current_user)
-          %li
-            =link_to 'My page',user_path(current_user)
       -else
         %ul.nav.navbar-nav.navbar-right
           %li
