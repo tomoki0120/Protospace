@@ -22,6 +22,7 @@ class PrototypesController < ApplicationController
   end
 
   def show
+    @likes = Like.where(prototype_id: params[:id])
   end
 
   def edit
