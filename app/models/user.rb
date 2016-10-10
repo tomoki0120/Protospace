@@ -6,5 +6,6 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
-  has_many :protos
+  has_many :protos,dependent: :delete_all
+  has_many :likes,dependent: :delete_all
 end

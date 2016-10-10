@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160917130448) do
+ActiveRecord::Schema.define(version: 20160921134910) do
 
   create_table "images", force: :cascade do |t|
     t.text     "photo",      limit: 65535
@@ -23,13 +23,24 @@ ActiveRecord::Schema.define(version: 20160917130448) do
 
   add_index "images", ["proto_id"], name: "index_images_on_proto_id", using: :btree
 
-  create_table "protos", force: :cascade do |t|
-    t.string   "title",      limit: 255
-    t.text     "catch_copy", limit: 65535
-    t.text     "concept",    limit: 65535
+  create_table "likes", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.integer  "proto_id",   limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "likes", ["proto_id"], name: "index_likes_on_proto_id", using: :btree
+  add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
+
+  create_table "protos", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.text     "catch_copy",  limit: 65535
+    t.text     "concept",     limit: 65535
+    t.integer  "user_id",     limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "likes_count", limit: 4
   end
 
   add_index "protos", ["user_id"], name: "index_protos_on_user_id", using: :btree
@@ -58,5 +69,7 @@ ActiveRecord::Schema.define(version: 20160917130448) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "images", "protos"
+  add_foreign_key "likes", "protos"
+  add_foreign_key "likes", "users"
   add_foreign_key "protos", "users"
 end
