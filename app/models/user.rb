@@ -8,4 +8,5 @@ class User < ActiveRecord::Base
 
   has_many :protos,dependent: :delete_all
   has_many :likes,dependent: :delete_all
+  has_many :comments,dependent: :delete_all
 end
