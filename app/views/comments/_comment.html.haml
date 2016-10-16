@@ -1,0 +1,4 @@
+%p
+  = link_to user_path(comment.user) do
+    =image_tag(comment.user.avatar,width: "64",height: "64")
+  = comment.comment_text
