@@ -50,14 +50,15 @@
   %h4.col-md-12
     Comments
     %span#comments-number.num
-      = @comments.size
+      = @prototype.comments.size
   .col-md-8
     .media
       .media-body
         %h4#top-aligned-media.media-heading
           %a.anchorjs-link{href: "#top-aligned-media"}
             %span.anchorjs-icon
-        = render @comments
+        .media-comment
+          = render @prototype.comments
     %form.form-inline
     - if user_signed_in?
       = form_for @comment,url: prototype_comments_path(@prototype),remote: true do |f|

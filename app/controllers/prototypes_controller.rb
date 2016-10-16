@@ -22,9 +22,9 @@ class PrototypesController < ApplicationController
   end
 
   def show
-    @likes = @prototype.likes
+    @prototype.likes
     @comment = Comment.new
-    @comments = @prototype.comments
+    @prototype.comments
   end
 
   def edit
