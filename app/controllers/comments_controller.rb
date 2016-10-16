@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
   end
 
   def set_comment
-    @comments = Comment.where(proto_id: params[:prototype_id])
+    @comments = Comment.find(proto_id: params[:prototype_id])
   end
 
 end
