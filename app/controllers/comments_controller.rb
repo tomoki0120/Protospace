@@ -1,12 +1,15 @@
 class CommentsController < ApplicationController
+  before_action :set_comment, only: [:create]
   def create
-    Comment.create(comment_text: set_comment[:comment_text],proto_id: params[:prototype_id],user_id: current_user.id) 
-    @comments = Comment.where(proto_id: params[:prototype_id])
+    Comment.create(comment_params)
   end
 
 
   private
-  def set_comment
-    params.require(:comment).permit(:comment_text)
+  def comment_params
+    params.require(:comment).permit(:comment_text).merge(user_id: current_user.id,proto_id: params[:prototype_id])
+  end
+  def set_commment
+    @comments = Comment.where(proto_id: params[:prototype_id])
   end
 end
