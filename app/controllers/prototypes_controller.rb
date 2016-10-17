@@ -22,7 +22,9 @@ class PrototypesController < ApplicationController
   end
 
   def show
-    @likes = Like.where(prototype_id: params[:id])
+    @prototype.likes
+    @comment = Comment.new
+    @prototype.comments
   end
 
   def edit
@@ -55,7 +57,4 @@ class PrototypesController < ApplicationController
     @sub_photo = @prototype.images_sub
     @main_photo = @prototype.image_main_photo
   end
-
-
-
 end
