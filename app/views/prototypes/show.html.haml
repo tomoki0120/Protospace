@@ -48,17 +48,16 @@
         %li
           %a{href: "#", class: "btn btn-default"} wireframe
   %h4.col-md-12
-    .media-comment
-      .js-media-comment
-        Comments
-        %span#comments-number.num
-          = @prototype.comments.size
-      .col-md-8
-        .media
-          .media-body
-            %h4#top-aligned-media.media-heading
-              %a.anchorjs-link{href: "#top-aligned-media"}
-                %span.anchorjs-icon
+    Comments
+    %span#comments-number.num
+      = @prototype.comments.size
+  .col-md-8
+    .media
+      .media-body
+        %h4#top-aligned-media.media-heading
+          %a.anchorjs-link{href: "#top-aligned-media"}
+            %span.anchorjs-icon
+        .media-comment
           = render @prototype.comments
     .form-inline
     - if user_signed_in?
