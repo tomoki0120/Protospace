@@ -59,7 +59,7 @@
             %span.anchorjs-icon
         .media-comment
           = render @prototype.comments
-    %form.form-inline
+    .form-inline
     - if user_signed_in?
       = form_for @comment,url: prototype_comments_path(@prototype),remote: true do |f|
         %h4 Write a comment
