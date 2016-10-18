@@ -7,9 +7,9 @@
           .user-name_image.row
             .user-name.col-md-10
               =f.text_field :name, placeholder:"Write your name",autofocus:true,required: true
-            / .user-image.col-md-2{:style: 'background-image: url(http://泣ける動画.com/wp-content/uploads/2015/01/t0205-01.jpg);'}
-            / %button.btn.btn-primary Change image
-            / %input{type: "file"}/
+            .user-image.col-md-2{:style: 'background-image: url(http://泣ける動画.com/wp-content/uploads/2015/01/t0205-01.jpg);'}
+            %button.btn.btn-primary Change image
+            =f.file_field :avatar
           .user-email
             =f.text_field :email,placeholder: "Wite your email",required: true
           =f.text_field :password, class: ".user-password", placeholder: "Password"
