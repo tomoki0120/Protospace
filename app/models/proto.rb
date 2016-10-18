@@ -6,6 +6,18 @@ class Proto < ActiveRecord::Base
 
   accepts_nested_attributes_for :images
 
+  def self.pagination_newest_per(param)
+    includes(:images,:user).order("created_at DESC").page(param).per(10)
+  end
+
+  def self.pagination_popular_per(param)
+    includes(:images,:user).order("likes_count DESC").page(param).per(10)
+  end
+
+  def self.pagination_prototype_per(param)
+    includes(:images,:user).page(param).per(10)
+  end
+
   def images_sub
     images.sub
   end
