@@ -4,7 +4,7 @@ class PrototypesController < ApplicationController
   before_action :set_photo, only: [:show,:edit]
 
   def index
-    @prototypes = Proto.pagination_per(params[:page])
+    @prototypes = Proto.pagination_prototype_per(params[:page])
   end
 
   def new
