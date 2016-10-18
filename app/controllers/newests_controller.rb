@@ -1,5 +1,5 @@
 class NewestsController < ApplicationController
   def index
-    @prototypes = Proto.includes(:images,:user).order("created_at DESC").page(params[:page]).per(10)
+    @prototypes = Proto.pagination_per(params[:page])
   end
 end

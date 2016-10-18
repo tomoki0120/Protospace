@@ -1,5 +1,5 @@
 class PopularsController < ApplicationController
   def index
-    @prototypes = Proto.includes(:images,:user).order('likes_count DESC').page(params[:page])
+    @prototypes = Proto.pagination_per(params[:page])
   end
 end
