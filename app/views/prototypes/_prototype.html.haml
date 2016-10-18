@@ -9,8 +9,8 @@
           =link_to "#{prototype.user.name}",user_path(prototype.user)
         .proto-posted
           = prototype.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[prototype.created_at.wday]})")
-        %ul.proto-tag-list.list-inline
+      %ul.proto-tag-list.list-inline
+        - prototype.tags.each do |tag|
           %li
-            %a{href: "#", class: "btn btn-default"} iPad
-          %li
-            %a{href: "#", class: "btn btn-default"} wireframe
+            =link_to tag.name,tag_path(tag.id),class: "btn btn-default"
+
