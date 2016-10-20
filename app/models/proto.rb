@@ -30,4 +30,6 @@ class Proto < ActiveRecord::Base
    likes.find_by(user_id: user)
   end
 
+  acts_as_taggable 
+
 end

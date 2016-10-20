@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :populars, only: [:index]
   resources :newests, only: [:index]
   resources :users, only: [:show,:edit,:update]
+  resources :tags, only: [:index,:show]
 end

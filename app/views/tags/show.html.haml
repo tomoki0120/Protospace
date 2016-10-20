@@ -13,9 +13,12 @@
       = button_tag class: "btn btn-default col-lg-1" do
         = link_to 'view tag',tags_path
 
+
 .container.proto-list
   .row
-    =render partial: 'prototypes/prototype', collection: @prototypes
+    = render partial: 'prototypes/prototype', collection: @prototypes
+
 .text-center
   %ul.pagination
-    =paginate(@prototypes)
+    = paginate(@prototypes)
+
