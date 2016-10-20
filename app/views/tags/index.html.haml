@@ -8,12 +8,15 @@
           =link_to 'Newest PROTO',newests_path
       = button_tag class: "btn btn-default col-lg-1" do
         = link_to 'view tag',tags_path
-.container
+.container.proto-list
   .row
-    .tags-list
-      %h2
-        Tags list
-      %ul
-        - @tags.each do |tag|
-          %li.col-md-4
-            = link_to tag.name, tag_path(tag.id), class: "btn btn-default"
+    - @tags.each do |tag|
+      .col-sm-4.col-md-3.proto-content
+        .thumbnail
+          =button_tag class: "btn btn-tag" do
+            = link_to tag.name, tag_path(tag.id)
+          .tag-meta
+            = link_to "#{tag.taggings_count}projects", tag_path(tag.id), class: "label label-default tag-list-number"
+
+
+
