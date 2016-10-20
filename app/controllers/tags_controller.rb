@@ -1,17 +1,12 @@
 class TagsController < ApplicationController
 
   def index
-    @tags = ActsAsTaggableOn::Tag.most_used
+    @tags = ActsAsTaggableOn::Tag.all
   end
 
   def show
-    @tag = ActsAsTaggableOn::Tag.where(name: tag_params)
+    @tag = ActsAsTaggableOn::Tag.find(params[:id])
     @prototypes = Proto.tagged_with(@tag).pagination_prototype_per(params[:page])
-  end
-
-  private
-  def tag_params
-    ActsAsTaggableOn::Tag.find(params[:id]).name
   end
 
 end
